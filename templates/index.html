@@ -1,0 +1,44 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year</title>
+<style>
+    body {
+    background-image: url('{% static 'img/bg.jpg' %}');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
+</head>
+
+<body>
+
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/snowfall.js' %}"></script>
+<!--<script type="text/javascript">-->
+<!--    (document).ready(function(){-->
+<!--        $(document).snowfall();-->
+<!--    });-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+<!--    (document).ready(function(){-->
+<!--        $(document).snowfall({image :"{% static 'img/snow4.png' %}", minSize: 10, maxSize:20});-->
+<!--    });-->
+<!--</script>-->
+<script src="https://daruse.ru/assets/js/snowfall.js"></script>
+<script type="text/javascript">
+      $(document).snowfall({
+            flakeCount: 100,
+            image :"{% static 'img/snow3.png' %}",
+            minSize: 10,
+            maxSize:20,
+            round: true,
+            shadow: false,
+        });
+</script>
+</body>
+</html>
