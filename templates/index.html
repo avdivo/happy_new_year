@@ -1,44 +1,161 @@
 {% load static %}
+<style>
+    body {
+        background-image: url('{% static 'img/bg.jpg' %}');
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .tree {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background: black;
+    }
+
+    .main_gift {
+        position: absolute;
+        height: 30%;
+        top: 80%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .gift5 {
+        position: absolute;
+        height: 15%;
+        top: 80%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(150%, -50%)
+    }
+
+    .gift4 {
+        position: absolute;
+        height: 14%;
+        top: 88%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(45%, -50%)
+    }
+
+    .gift3 {
+        position: absolute;
+        height: 15%;
+        top: 90%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .gift2 {
+        position: absolute;
+        height: 18%;
+        top: 88%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-145%, -50%)
+    }
+
+    .gift1 {
+        position: absolute;
+        height: 15%;
+        top: 81%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-270%, -50%)
+    }
+
+    .snowman {
+        position: absolute;
+        height: 20%;
+        top: 60%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(30%, -50%)
+    }
+
+    .frame {
+        position: absolute;
+        height: 50%;
+        top: 30%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .frame_div {
+        font-size: 15;
+        font-family: 'PF Centro Sans Pro', sans-serif;
+        overflow: auto;
+        position: absolute;
+        height: 17%;
+        top: 31%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+
+
+
+</style>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Happy New Year</title>
-<style>
-    body {
-    background-image: url('{% static 'img/bg.jpg' %}');
-    background-size: auto 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>
 </head>
 
 <body>
 
+<div id="main_gift" >
+    <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
+</div>
+
+<div id="frame">
+    <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
+</div>
+
+<div class="frame_div">
+<!--    <img class="frame_txt" src="{% static 'img/frame_txt.png' %}">-->
+    У вас появятся силы забыть сделанное добро, и не ждать благодарности. Воспользуйтесь ими по назначению.
+
+</div>
+
+<div id="gifts">
+    <a href=""><img class="gift5" src="{% static 'img/gift5.png' %}"></a>
+    <a href=""><img class="gift4" src="{% static 'img/gift4.png' %}"></a>
+    <a href=""><img class="gift3" src="{% static 'img/gift3.png' %}"></a>
+    <a href=""><img class="gift2" src="{% static 'img/gift2.png' %}"></a>
+    <a href=""><img class="gift1" src="{% static 'img/gift1.png' %}"></a>
+</div>
+
+<a href=""><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
+
+
 
 <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
-<script src="{% static 'js/snowfall.js' %}"></script>
-<!--<script type="text/javascript">-->
-<!--    (document).ready(function(){-->
-<!--        $(document).snowfall();-->
-<!--    });-->
-<!--</script>-->
-
-<!--<script type="text/javascript">-->
-<!--    (document).ready(function(){-->
-<!--        $(document).snowfall({image :"{% static 'img/snow4.png' %}", minSize: 10, maxSize:20});-->
-<!--    });-->
-<!--</script>-->
 <script src="https://daruse.ru/assets/js/snowfall.js"></script>
 <script type="text/javascript">
       $(document).snowfall({
-            flakeCount: 100,
+            flakeCount: 130,
             image :"{% static 'img/snow3.png' %}",
             minSize: 10,
             maxSize:20,
+            maxSpeed: 3,
+            minSpeed: 1,
             round: true,
             shadow: false,
         });
 </script>
+<script type="text/javascript">
+      $(document).ready(function(){
+            let w = $('#img_frame').width();
+            $('.frame_div').width(w/1.8);
+        });
+</script>
+
 </body>
 </html>
