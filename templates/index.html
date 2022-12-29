@@ -20,7 +20,8 @@
         top: 80%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
+        cursor: pointer;
     }
 
     .gift5 {
@@ -29,7 +30,8 @@
         top: 80%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(150%, -50%)
+        transform: translate(150%, -50%);
+        cursor: pointer;
     }
 
     .gift4 {
@@ -38,7 +40,8 @@
         top: 88%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(45%, -50%)
+        transform: translate(45%, -50%);
+        cursor: pointer;
     }
 
     .gift3 {
@@ -47,7 +50,8 @@
         top: 90%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
+        cursor: pointer;
     }
 
     .gift2 {
@@ -56,7 +60,8 @@
         top: 88%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-145%, -50%)
+        transform: translate(-145%, -50%);
+        cursor: pointer;
     }
 
     .gift1 {
@@ -65,7 +70,8 @@
         top: 81%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-270%, -50%)
+        transform: translate(-270%, -50%);
+        cursor: pointer;
     }
 
     .snowman {
@@ -74,7 +80,7 @@
         top: 60%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(30%, -50%)
+        transform: translate(30%, -50%);
     }
 
     .frame {
@@ -83,7 +89,7 @@
         top: 30%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
     }
 
     .frame_div {
@@ -95,7 +101,7 @@
         top: 31%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
     }
 
 
@@ -114,29 +120,36 @@
     <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
 </div>
 
-<div id="frame">
+<div id="frame" >
     <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
 </div>
 
-<div class="frame_div">
-<!--    <img class="frame_txt" src="{% static 'img/frame_txt.png' %}">-->
+<div class="frame_div" id="frame_div">
     У вас появятся силы забыть сделанное добро, и не ждать благодарности. Воспользуйтесь ими по назначению.
-
+    У вас появятся силы забыть сделанное добро, и не ждать благода
 </div>
 
-<div id="gifts">
-    <a href=""><img class="gift5" src="{% static 'img/gift5.png' %}"></a>
-    <a href=""><img class="gift4" src="{% static 'img/gift4.png' %}"></a>
-    <a href=""><img class="gift3" src="{% static 'img/gift3.png' %}"></a>
-    <a href=""><img class="gift2" src="{% static 'img/gift2.png' %}"></a>
-    <a href=""><img class="gift1" src="{% static 'img/gift1.png' %}"></a>
+<!-- Выбор подарка -->
+<form action="{% url 'prediction' %}" method="post" id="form_prediction">
+    <input type="hidden" id="number_gift" name="number_gift" value="">
+    {% csrf_token %}
+</form>
+
+<div id="gifts" >
+    <img name="gift" class="gift5" src="{% static 'img/gift5.png' %}">
+    <img name="gift" class="gift4" src="{% static 'img/gift4.png' %}">
+    <img name="gift" class="gift3" src="{% static 'img/gift3.png' %}">
+    <img name="gift" class="gift2" src="{% static 'img/gift2.png' %}">
+    <img name="gift" class="gift1" src="{% static 'img/gift1.png' %}">
 </div>
 
-<a href=""><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
+
+<a href="" hidden><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
 
 
 
 <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 <script src="https://daruse.ru/assets/js/snowfall.js"></script>
 <script type="text/javascript">
       $(document).snowfall({
@@ -150,12 +163,7 @@
             shadow: false,
         });
 </script>
-<script type="text/javascript">
-      $(document).ready(function(){
-            let w = $('#img_frame').width();
-            $('.frame_div').width(w/1.8);
-        });
-</script>
+
 
 </body>
 </html>
