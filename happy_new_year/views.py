@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def index(request):
@@ -8,5 +8,9 @@ def index(request):
 
 def prediction(request):
     """ Выбор предсказания для Ajax запроса по присланному номеру подарка """
-    print(request, '------------------------------')
+    try:
+        gift = int(request.POST.get('number_gift'))
+    except:
+        return redirect('index')
+    print(gift, '------------------------------')
     return render(request, 'index.html', locals())
