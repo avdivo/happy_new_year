@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+import random
 
 def index(request):
     """ Главная страница, без основного подарка """
