@@ -105,8 +105,6 @@
     }
 
 
-
-
 </style>
 <html lang="ru">
 <head>
@@ -116,25 +114,38 @@
 
 <body>
 
+<!-- Большой подарок -->
 <div id="main_gift" >
     <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
 </div>
 
-<div id="frame" >
+<!-- Рамка для текста -->
+<div id="frame" hidden>
     <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
 </div>
 
-<div class="frame_div" id="frame_div">
+<!-- Текст сообщения которое вводится в рамке -->
+<div class="frame_div" id="frame_div" hidden>
     У вас появятся силы забыть сделанное добро, и не ждать благодарности. Воспользуйтесь ими по назначению.
     У вас появятся силы забыть сделанное добро, и не ждать благода
 </div>
 
-<!-- Выбор подарка -->
+<!-- Форма для отправки текста сообщения -->
+<form action="{% url 'get_mes' %}" method="post" id="form_get_mes">
+    <div class="frame_div">
+        <textarea cols="30" rows="7" placeholder="Введите сообщение" id="message" name="message" value="">
+        </textarea>
+    </div>
+    {% csrf_token %}
+</form>
+
+<!-- Форма для отправки номера выбранного подарка -->
 <form action="{% url 'prediction' %}" method="post" id="form_prediction">
     <input type="hidden" id="number_gift" name="number_gift" value="">
     {% csrf_token %}
 </form>
 
+<!-- Маленькие подарки -->
 <div id="gifts" >
     <img name="gift" class="gift5" src="{% static 'img/gift5.png' %}">
     <img name="gift" class="gift4" src="{% static 'img/gift4.png' %}">

@@ -21,12 +21,11 @@ $(document).ready(function(){
                 cache: true,
                 success: function (data) {
                     // Операция успешно выполнена
-                    if (change == 'delete'){
-                        // Удаляем кандидатов на удаление (на сервере это уже сделано)
-                        $.each(product, function(i, del) {
-                            $('#row_' + del).remove();
-                        });
+                    if (data.prediction){
+                        // Получено предсказание
+                        alert(data.prediction)
                     }
+                        // Получена ссылка на отправленное поздравление
                         $('#exampleModal').modal('show'); // Показать сообщение о добавлении товара в корзину
                         // Сурываем сообщение о добавлении товара в корзину
                         setTimeout(function(){
