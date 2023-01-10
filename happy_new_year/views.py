@@ -5,12 +5,13 @@ from .models import Prediction
 
 import random
 
-def index(request):
+
+def index(request, id_mes=0):
     """ Главная страница, без основного подарка """
     return render(request, 'index.html', locals())
 
 
-def get_mes(request, id_mes):
+def save_mess(request):
     """ Страница для получения сообщения """
     # print(request.POST.get('message'))
     return render(request, 'index.html', locals())

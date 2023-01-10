@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import index, prediction, get_mes
+from .views import index, prediction, save_mess
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
-    path('/<str:id_mes>/', get_mes, name="get_mes"),
+    path('/<str:id_mes>/', index, name="index"),
+    path('save_mess/', save_mess, name="save_mess"),
     path('prediction/', prediction, name="prediction"),
 
 ]
