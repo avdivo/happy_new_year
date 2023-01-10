@@ -83,6 +83,15 @@
         transform: translate(30%, -50%);
     }
 
+    .snowman_mini {
+        position: absolute;
+        height: 8%;
+        top: 40%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(100%, -50%);
+    }
+
     .frame {
         position: absolute;
         height: 50%;
@@ -109,35 +118,38 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'>
     <title>Happy New Year</title>
 </head>
 
 <body>
 
 <!-- Большой подарок -->
-<div id="main_gift" >
+<div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
     <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
 </div>
 
 <!-- Рамка для текста -->
 <div id="frame" hidden>
     <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
+    <a href=""><img class="snowman_mini" src="{% static 'img/snowman.png' %}"></a>
 </div>
 
 <!-- Текст сообщения которое вводится в рамке -->
 <div class="frame_div" id="frame_div" hidden>
     У вас появятся силы забыть сделанное добро, и не ждать благодарности. Воспользуйтесь ими по назначению.
-    У вас появятся силы забыть сделанное добро, и не ждать благода
+    У вас появятся силы забыть сделанное добро, и не ждать благода обро, и не ждать благода
 </div>
 
 <!-- Форма для отправки текста сообщения -->
-<form action="{% url 'save_mess' %}" method="post" id="form_get_mes">
-    <div class="frame_div">
-        <textarea cols="30" rows="7" placeholder="Введите сообщение" id="message" name="message" value="">
-        </textarea>
-    </div>
-    {% csrf_token %}
-</form>
+<div class="frame_div" hidden>
+    <form action="{% url 'save_mess' %}" method="post" id="form_save_mess">
+        {% csrf_token %}
+    </form>
+    <textarea form="form_save_mess" cols="26" rows="6" placeholder="Введите сообщение" id="message" name="message" value="">
+    </textarea><br>
+</div>
+
 
 <!-- Форма для отправки номера выбранного подарка -->
 <form action="{% url 'prediction' %}" method="post" id="form_prediction">
@@ -146,7 +158,7 @@
 </form>
 
 <!-- Маленькие подарки -->
-<div id="gifts" >
+<div id="gifts" {% if id_mes %} hidden{% endif %}>
     <img name="gift" class="gift5" src="{% static 'img/gift5.png' %}">
     <img name="gift" class="gift4" src="{% static 'img/gift4.png' %}">
     <img name="gift" class="gift3" src="{% static 'img/gift3.png' %}">
@@ -155,7 +167,7 @@
 </div>
 
 
-<a href="" hidden><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
+<a href=""><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
 
 
 
