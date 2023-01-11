@@ -17,11 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from .views import index, prediction, save_mess
 
+# Для добавления префикса к URL адресам
+from django.conf.urls import include
+from django.conf import settings
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', index, name="index"),
     path('<str:id_mes>', index, name="index"),
     path('save_mess/', save_mess, name="save_mess"),
     path('prediction/', prediction, name="prediction"),
 
 ]
+
+# Добавляем префикс ко всем URL адресам
+if settings.URL_PREFIX:
+    urlpatterns = [path(f'{settings.URL_PREFIX}/', include(urlpatterns))]
