@@ -1,7 +1,7 @@
 {% load static %}
 <style>
     body {
-        background-image: url('{% static 'img/bg.jpg' %}');
+        background-image: url('{% static 'img/bg1.gif' %}'), url('{% static 'img/bg.jpg' %}');
         background-size: auto 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -81,15 +81,17 @@
         left: 50%;
         margin-right: -50%;
         transform: translate(30%, -50%);
+        cursor: pointer;
     }
 
-    .snowman_mini {
+    .ok {
         position: absolute;
-        height: 8%;
-        top: 40%;
+        height: 6%;
+        top: 42%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(100%, -50%);
+        transform: translate(200%, -50%);
+        cursor: pointer;
     }
 
     .frame {
@@ -124,68 +126,64 @@
 
 <body>
 
-<!-- Большой подарок -->
-<div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
-    <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
-</div>
+    <!-- Большой подарок -->
+    <div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
+        <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
+    </div>
 
-<!-- Рамка для текста -->
-<div id="frame" hidden>
-    <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
-    <a href=""><img class="snowman_mini" src="{% static 'img/snowman.png' %}"></a>
-</div>
+    <!-- Рамка для текста -->
+    <div id="frame" hidden>
+        <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
+        <img class="ok" src="{% static 'img/ok.png' %}">
+    </div>
 
-<!-- Текст сообщения которое вводится в рамке -->
-<div class="frame_div" id="frame_div" hidden>
-    У вас появятся силы забыть сделанное добро, и не ждать благодарности. Воспользуйтесь ими по назначению.
-    У вас появятся силы забыть сделанное добро, и не ждать благода обро, и не ждать благода
-</div>
+    <!-- Текст сообщения которое вводится в рамке -->
+    <div class="frame_div" id="frame_div" hidden>
+        {{ message }}
+    </div>
 
-<!-- Форма для отправки текста сообщения -->
-<div class="frame_div" hidden>
+    <!-- Форма для отправки текста сообщения -->
     <form action="{% url 'save_mess' %}" method="post" id="form_save_mess">
         {% csrf_token %}
     </form>
-    <textarea form="form_save_mess" cols="26" rows="6" placeholder="Введите сообщение" id="message" name="message" value="">
-    </textarea><br>
-</div>
+    <div class="frame_div" id="frame_form" hidden>
+        <textarea form="form_save_mess" cols="24" rows="5" id="message" name="message"></textarea>
+    </div>
 
+    <!-- Форма для отправки номера выбранного подарка -->
+    <form action="{% url 'prediction' %}" method="post" id="form_prediction">
+        <input type="hidden" id="number_gift" name="number_gift" value="">
+        {% csrf_token %}
+    </form>
 
-<!-- Форма для отправки номера выбранного подарка -->
-<form action="{% url 'prediction' %}" method="post" id="form_prediction">
-    <input type="hidden" id="number_gift" name="number_gift" value="">
-    {% csrf_token %}
-</form>
+    <!-- Маленькие подарки -->
+    <div id="gifts" {% if id_mes %} hidden{% endif %}>
+        <img name="gift" class="gift5" src="{% static 'img/gift5.png' %}">
+        <img name="gift" class="gift4" src="{% static 'img/gift4.png' %}">
+        <img name="gift" class="gift3" src="{% static 'img/gift3.png' %}">
+        <img name="gift" class="gift2" src="{% static 'img/gift2.png' %}">
+        <img name="gift" class="gift1" src="{% static 'img/gift1.png' %}">
+    </div>
 
-<!-- Маленькие подарки -->
-<div id="gifts" {% if id_mes %} hidden{% endif %}>
-    <img name="gift" class="gift5" src="{% static 'img/gift5.png' %}">
-    <img name="gift" class="gift4" src="{% static 'img/gift4.png' %}">
-    <img name="gift" class="gift3" src="{% static 'img/gift3.png' %}">
-    <img name="gift" class="gift2" src="{% static 'img/gift2.png' %}">
-    <img name="gift" class="gift1" src="{% static 'img/gift1.png' %}">
-</div>
-
-
-<a href=""><img class="snowman" src="{% static 'img/snowman.png' %}"></a>
+    <img id="snowman" class="snowman" src="{% static 'img/snowman.png' %}">
 
 
 
-<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
-<script src="{% static 'js/script.js' %}"></script>
-<script src="https://daruse.ru/assets/js/snowfall.js"></script>
-<script type="text/javascript">
-      $(document).snowfall({
-            flakeCount: 130,
-            image :"{% static 'img/snow3.png' %}",
-            minSize: 10,
-            maxSize:20,
-            maxSpeed: 3,
-            minSpeed: 1,
-            round: true,
-            shadow: false,
-        });
-</script>
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://daruse.ru/assets/js/snowfall.js"></script>
+    <script type="text/javascript">
+          $(document).snowfall({
+                flakeCount: 130,
+                image :"{% static 'img/snow3.png' %}",
+                minSize: 10,
+                maxSize:20,
+                maxSpeed: 3,
+                minSpeed: 1,
+                round: true,
+                shadow: false,
+            });
+    </script>
 
 
 </body>
