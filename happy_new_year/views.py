@@ -13,6 +13,7 @@ def index(request, id_mes=0):
     if id_mes:
         try:
             message = Message.objects.get(id=id_mes).message
+            message = message.replace('\n', '<br>')
         except:
             id_mes = 0  # Если сообщения с таким id не существует, выводим простую стартовую страницу
     return render(request, 'index.html', locals())

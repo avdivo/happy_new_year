@@ -1,7 +1,7 @@
 {% load static %}
 <style>
     body {
-        background-image: url('{% static 'img/bg1.gif' %}'), url('{% static 'img/bg.jpg' %}');
+        background-image: url('{% static 'img/bg_animated.gif' %}'), url('{% static 'img/bg.jpg' %}');
         background-size: auto 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -23,6 +23,9 @@
         transform: translate(-50%, -50%);
         cursor: pointer;
     }
+    .main_gift:hover {
+        height: 31%;
+    }
 
     .gift5 {
         position: absolute;
@@ -32,6 +35,9 @@
         margin-right: -50%;
         transform: translate(150%, -50%);
         cursor: pointer;
+    }
+    .gift5:hover {
+        height: 16%;
     }
 
     .gift4 {
@@ -43,6 +49,9 @@
         transform: translate(45%, -50%);
         cursor: pointer;
     }
+    .gift4:hover {
+        height: 15%;
+    }
 
     .gift3 {
         position: absolute;
@@ -52,6 +61,9 @@
         margin-right: -50%;
         transform: translate(-50%, -50%);
         cursor: pointer;
+    }
+    .gift3:hover {
+        height: 16%;
     }
 
     .gift2 {
@@ -63,6 +75,9 @@
         transform: translate(-145%, -50%);
         cursor: pointer;
     }
+    .gift2:hover {
+        height: 19%;
+    }
 
     .gift1 {
         position: absolute;
@@ -72,6 +87,9 @@
         margin-right: -50%;
         transform: translate(-270%, -50%);
         cursor: pointer;
+    }
+    .gift1:hover {
+        height: 16%;
     }
 
     .snowman {
@@ -83,6 +101,9 @@
         transform: translate(30%, -50%);
         cursor: pointer;
     }
+    .snowman:hover {
+        height: 21%;
+    }
 
     .ok {
         position: absolute;
@@ -92,6 +113,10 @@
         margin-right: -50%;
         transform: translate(200%, -50%);
         cursor: pointer;
+    }
+    .ok:hover {
+        height: 7%;
+        transform: translate(160%, -50%);
     }
 
     .frame {
@@ -115,7 +140,18 @@
         transform: translate(-50%, -50%);
     }
 
-
+    .designed {
+        font-size: 15;
+        font-family: 'PF Centro Sans Pro', sans-serif;
+        position: absolute;
+        top: 98%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+    .designed:hover {
+        color: #fff000;
+    }
 </style>
 <html lang="ru">
 <head>
@@ -128,7 +164,7 @@
 
     <!-- Большой подарок -->
     <div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
-        <a href=""><img class="main_gift" src="{% static 'img/main_gift.png' %}"></a>
+        <img class="main_gift" src="{% static 'img/main_gift.png' %}">
     </div>
 
     <!-- Рамка для текста -->
@@ -139,7 +175,7 @@
 
     <!-- Текст сообщения которое вводится в рамке -->
     <div class="frame_div" id="frame_div" hidden>
-        {{ message }}
+        {{ message|safe }}
     </div>
 
     <!-- Форма для отправки текста сообщения -->
@@ -167,6 +203,7 @@
 
     <img id="snowman" class="snowman" src="{% static 'img/snowman.png' %}">
 
+    <a href="http://avdivo.ru/"><div class="designed">Designed by avdivo 2022-2023</div></a>
 
 
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
