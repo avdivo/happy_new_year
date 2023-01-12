@@ -138,6 +138,20 @@
             transform: translate(160%, -50%);
         }
 
+        .close {
+            position: absolute;
+            height: 6%;
+            top: 19%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(250%, -50%);
+            cursor: pointer;
+        }
+        .close:hover {
+            height: 7%;
+            transform: translate(210%, -50%);
+        }
+
         .frame {
             position: absolute;
             height: 50%;
@@ -208,6 +222,7 @@
     <div id="frame" hidden>
         <img class="frame" id="img_frame" src="{% static 'img/frame.png' %}">
         <img class="ok" src="{% static 'img/ok.png' %}">
+        <img class="close" src="{% static 'img/close.png' %}">
     </div>
 
     <!-- Текст сообщения которое вводится в рамке -->
