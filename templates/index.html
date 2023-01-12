@@ -1,166 +1,174 @@
 {% load static %}
-<style>
-    body {
-        background-image: url('{% static 'img/bg_animated.gif' %}'), url('{% static 'img/bg.jpg' %}');
-        background-size: auto 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .tree {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        background: black;
-    }
-
-    .main_gift {
-        position: absolute;
-        height: 30%;
-        top: 80%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-    }
-    .main_gift:hover {
-        height: 31%;
-    }
-
-    .gift5 {
-        position: absolute;
-        height: 15%;
-        top: 80%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(150%, -50%);
-        cursor: pointer;
-    }
-    .gift5:hover {
-        height: 16%;
-    }
-
-    .gift4 {
-        position: absolute;
-        height: 14%;
-        top: 88%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(45%, -50%);
-        cursor: pointer;
-    }
-    .gift4:hover {
-        height: 15%;
-    }
-
-    .gift3 {
-        position: absolute;
-        height: 15%;
-        top: 90%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-    }
-    .gift3:hover {
-        height: 16%;
-    }
-
-    .gift2 {
-        position: absolute;
-        height: 18%;
-        top: 88%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-145%, -50%);
-        cursor: pointer;
-    }
-    .gift2:hover {
-        height: 19%;
-    }
-
-    .gift1 {
-        position: absolute;
-        height: 15%;
-        top: 81%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-270%, -50%);
-        cursor: pointer;
-    }
-    .gift1:hover {
-        height: 16%;
-    }
-
-    .snowman {
-        position: absolute;
-        height: 20%;
-        top: 60%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(30%, -50%);
-        cursor: pointer;
-    }
-    .snowman:hover {
-        height: 21%;
-    }
-
-    .ok {
-        position: absolute;
-        height: 6%;
-        top: 42%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(200%, -50%);
-        cursor: pointer;
-    }
-    .ok:hover {
-        height: 7%;
-        transform: translate(160%, -50%);
-    }
-
-    .frame {
-        position: absolute;
-        height: 50%;
-        top: 30%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .frame_div {
-        font-size: 15;
-        font-family: 'PF Centro Sans Pro', sans-serif;
-        overflow: auto;
-        position: absolute;
-        height: 17%;
-        top: 31%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .designed {
-        font-size: 15;
-        font-family: 'PF Centro Sans Pro', sans-serif;
-        position: absolute;
-        top: 98%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-    .designed:hover {
-        color: #fff000;
-    }
-</style>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'>
     <title>Happy New Year</title>
+
+    <style>
+        body {
+            background-image: url('{% static 'img/bg_animated.gif' %}'), url('{% static 'img/bg.jpg' %}');
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .tree {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background: black;
+        }
+
+        .main_gift {
+            position: absolute;
+            height: 30%;
+            top: 80%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        .main_gift:hover {
+            height: 31%;
+        }
+
+        .gift5 {
+            position: absolute;
+            height: 15%;
+            top: 80%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(150%, -50%);
+            cursor: pointer;
+        }
+        .gift5:hover {
+            height: 16%;
+        }
+
+        .gift4 {
+            position: absolute;
+            height: 14%;
+            top: 88%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(45%, -50%);
+            cursor: pointer;
+        }
+        .gift4:hover {
+            height: 15%;
+        }
+
+        .gift3 {
+            position: absolute;
+            height: 15%;
+            top: 90%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        .gift3:hover {
+            height: 16%;
+        }
+
+        .gift2 {
+            position: absolute;
+            height: 18%;
+            top: 88%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-145%, -50%);
+            cursor: pointer;
+        }
+        .gift2:hover {
+            height: 19%;
+        }
+
+        .gift1 {
+            position: absolute;
+            height: 15%;
+            top: 81%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-270%, -50%);
+            cursor: pointer;
+        }
+        .gift1:hover {
+            height: 16%;
+        }
+
+        .snowman {
+            position: absolute;
+            height: 20%;
+            top: 60%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(30%, -50%);
+            cursor: pointer;
+        }
+        .snowman:hover {
+            height: 21%;
+        }
+
+        .ok {
+            position: absolute;
+            height: 6%;
+            top: 42%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(200%, -50%);
+            cursor: pointer;
+        }
+        .ok:hover {
+            height: 7%;
+            transform: translate(160%, -50%);
+        }
+
+        .frame {
+            position: absolute;
+            height: 50%;
+            top: 30%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .frame_div {
+            font-size: 15;
+            font-family: 'PF Centro Sans Pro', sans-serif;
+            overflow: auto;
+            position: absolute;
+            height: 17%;
+            top: 31%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .designed {
+            font-size: 15;
+            font-family: 'PF Centro Sans Pro', sans-serif;
+            position: absolute;
+            top: 98%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+        .designed:hover {
+            color: #fff000;
+        }
+    </style>
+
 </head>
 
 <body>
+
+<!--    <audio src="{% static 'music/Canadian_Brass-Jingle_Bells.mp3' %}" autoplay="true" loop="true" controls></audio>-->
+<audio autoplay="autoplay">
+<source src="{% static 'music/Canadian_Brass-Jingle_Bells.mp3' %}" type="audio/mp3">
+Ваш web-браузер не поддерживает HTML элемент «<a href="/html/audio/">audio</a>».
+</audio>
 
     <!-- Большой подарок -->
     <div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
@@ -205,9 +213,9 @@
 
     <a href="http://avdivo.ru/"><div class="designed">Designed by avdivo 2022-2023</div></a>
 
-
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+
     <script src="https://daruse.ru/assets/js/snowfall.js"></script>
     <script type="text/javascript">
           $(document).snowfall({
