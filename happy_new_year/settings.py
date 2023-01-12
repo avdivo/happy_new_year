@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'avdivo.ru', 'hny']
 
 CSRF_TRUSTED_ORIGINS = ['https://avdivo.ru']
 
+USE_X_FORWARDED_HOST = True  # Для получения URL сервера, а не внутреннего nginx
+
 # Application definition
 
 INSTALLED_APPS = [
