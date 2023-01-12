@@ -32,6 +32,7 @@ $(document).ready(function(){
                         $('.frame_div').width(w/1.8);
 
                     } else {
+//                    alert(window.location.href)
                         $('#message').val(data.url);
                         $('#message').select();
                         document.execCommand('copy');
