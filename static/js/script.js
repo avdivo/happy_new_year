@@ -39,16 +39,6 @@ $(document).ready(function(){
                         location.reload();
                     }
                 },
-                error: function(){
-                    console.log('error');
-                    // Произошла ошибка связи с сервером или обновления данных
-                    if (change == 'change') {
-                        // Отменяем добавление или отнятие товаров в корзину
-                        $('#var-value_' + product).html($('#sum_' + product).html() / $('#price_' + product).html());
-                    }
-                    alert('Ошибка при передаче данных!');
-                    updatePage();
-                }
             });
 
 
