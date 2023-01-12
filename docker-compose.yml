@@ -6,6 +6,12 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    networks:
+      nginx_net:
     restart: always
     ports:
       - 0.0.0.0:8003:8000
+
+networks:
+  nginx_net:
+    name: nginx_net
