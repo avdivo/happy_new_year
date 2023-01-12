@@ -111,6 +111,19 @@
             height: 21%;
         }
 
+        .help {
+            position: absolute;
+            height: 15%;
+            top: 30%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-190%, -50%);
+            cursor: pointer;
+        }
+        .help:hover {
+            height: 17%;
+        }
+
         .ok {
             position: absolute;
             height: 6%;
@@ -146,6 +159,22 @@
             transform: translate(-50%, -50%);
         }
 
+        .form_text {
+            font-size: 15;
+            font-family: 'PF Centro Sans Pro', sans-serif;
+            overflow: auto;
+            position: absolute;
+            height: 17%;
+            top: 31%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            border: none;
+        }
+        textarea:focus {
+          outline: none;
+        }
+
         .designed {
             font-size: 15;
             font-family: 'PF Centro Sans Pro', sans-serif;
@@ -165,10 +194,10 @@
 <body>
 
 <!--    <audio src="{% static 'music/Canadian_Brass-Jingle_Bells.mp3' %}" autoplay="true" loop="true" controls></audio>-->
-<audio autoplay="autoplay">
-<source src="{% static 'music/Canadian_Brass-Jingle_Bells.mp3' %}" type="audio/mp3">
-Ваш web-браузер не поддерживает HTML элемент «<a href="/html/audio/">audio</a>».
-</audio>
+<!--<audio autoplay="autoplay">-->
+<!--<source src="{% static 'music/Canadian_Brass-Jingle_Bells.mp3' %}" type="audio/mp3">-->
+<!--Ваш web-браузер не поддерживает HTML элемент «<a href="/html/audio/">audio</a>».-->
+<!--</audio>-->
 
     <!-- Большой подарок -->
     <div id="main_gift" {% if id_mes == 0 %} hidden{% endif %}>
@@ -189,10 +218,8 @@
     <!-- Форма для отправки текста сообщения -->
     <form action="{% url 'save_mess' %}" method="post" id="form_save_mess">
         {% csrf_token %}
+        <textarea class="form_text" id="message" name="message" hidden></textarea>
     </form>
-    <div class="frame_div" id="frame_form" hidden>
-        <textarea form="form_save_mess" cols="24" rows="5" id="message" name="message"></textarea>
-    </div>
 
     <!-- Форма для отправки номера выбранного подарка -->
     <form action="{% url 'prediction' %}" method="post" id="form_prediction">
@@ -210,6 +237,7 @@
     </div>
 
     <img id="snowman" class="snowman" src="{% static 'img/snowman.png' %}">
+    <img id="help" class="help" src="{% static 'img/help.png' %}">
 
     <a href="http://avdivo.ru/"><div class="designed">Designed by avdivo 2022-2023</div></a>
 
