@@ -25,6 +25,10 @@
 
 git clone https://github.com/avdivo/happy_new_year
 
+- Перейти в папку проекта:
+
+cd happy_new_year/
+
 - Для запуска проекта в контейнерах выполнить:
 
 docker-compose up -d --build
